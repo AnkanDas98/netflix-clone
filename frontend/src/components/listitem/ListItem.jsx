@@ -14,12 +14,21 @@ const ListItem = ({ index }) => {
   const trailer =
     "https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0fd273d2c6d9a064f3ae35579b2bbdf&profile_id=139&oauth2_token_id=57447761";
 
+  const screenSize = window.matchMedia("(max-width: 790px)");
+
   return (
     <div
       className="listitem"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      style={{ left: isHovered && index * 230 - 50 + index * 2.5 }}
+      // style={{ left: isHovered && index * 230 - 50 + index * 2.5 }}
+      style={{
+        left: isHovered
+          ? screenSize.matches
+            ? index * 230
+            : index * 230 - 50 + index * 2.5
+          : "",
+      }}
     >
       <img src="/images/Joker-movie-thumbnail2.jpg" alt="" />
       {isHovered && (

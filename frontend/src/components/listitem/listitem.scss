@@ -81,3 +81,38 @@
         }
     }
 }
+
+@media(max-width:790px){
+    .listitem{
+        width: 230px;
+        height: 130px;
+        
+        video{
+            width: 230px;
+        height: 130px;
+            position: absolute;          
+            top: 0;
+            left: 0;
+        
+        }
+        &:hover{
+            width: 230px;
+            height: 130px;
+            position: absolute;
+            top:0;
+
+            img{
+                width: 230px;
+                height: 130px;
+            }
+    
+
+        .item-info{
+            display: none;
+            
+        }
+
+        }
+    }
+
+}
