@@ -1,6 +1,8 @@
 .watch{
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    background-color: #111;
+    overflow-x: hidden;
 
     .back{
         display: flex;
@@ -14,8 +16,57 @@
     }
 
     .video{
-        width: 100%;
-        height: 100%;
+        margin-top: 50px;
+        width: 99%;
+        height: 56vh;
         object-fit: cover;
+        border: 1px solid gray;
+    }
+}
+
+// @media(max-width:68em){
+//     .watch{
+//         width: 100vw;
+//         min-height: 100vh;
+//         background-color: #111;
+//         overflow-x: hidden;
+    
+//         .back{
+//             display: flex;
+//             align-items: center;
+//             position: absolute;
+//             top: 10px;
+//             left: 10px;
+//             color: white;
+//             cursor: pointer;
+//             z-index: 100;
+//         }
+    
+//         .video{
+//             margin-top: 50px;
+//             width: 99%;
+//             height: 56vh;
+//             object-fit: cover;
+//             border: 1px solid gray;
+//         }
+//     }
+    
+// }
+
+@media(max-width:46em){
+    .watch{
+        width: 100vw;
+        min-height: 100vh;
+    
+        .back{
+            display: none;
+        }
+    
+        .video{
+            width: 100%;
+            height: 30vh;
+            object-fit: cover;
+          border: none;
+        }
     }
 }

@@ -3,8 +3,11 @@ import React from "react";
 import { ArrowBackOutlined } from "@material-ui/icons";
 
 import "./watch.scss";
+import List from "../../components/list/List";
 
 const Watch = () => {
+  const screenSize = window.matchMedia("(max-width: 46em)");
+
   return (
     <div className="watch">
       <div className="back">
@@ -18,6 +21,8 @@ const Watch = () => {
         progress
         controls
       ></video>
+      <List title="Releated Videos" />
+      {!screenSize.matches && <List title="More" />}
     </div>
   );
 };

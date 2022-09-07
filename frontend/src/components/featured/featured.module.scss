@@ -86,8 +86,9 @@
 
 @media(max-width: 870px){
     .featured{
+        height: 60vh;
+        margin-bottom: 1.2rem;
         
-        height: 70vh;
         .info{
             width: 58%;
         position: absolute;
@@ -147,6 +148,10 @@
 
         .buttons{
             padding-left: 84px;
+
+            span{
+                font-size: 16px;
+            }
         }
 
         }
