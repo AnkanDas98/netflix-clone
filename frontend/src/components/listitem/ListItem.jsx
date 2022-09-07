@@ -11,26 +11,36 @@ import "./listitem.scss";
 const ListItem = ({ index }) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  const trailer =
-    "https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0fd273d2c6d9a064f3ae35579b2bbdf&profile_id=139&oauth2_token_id=57447761";
+  const trailer = "/videos/demo.mp4";
 
-  const screenSize = window.matchMedia("(max-width: 790px)");
+  const screenSize = window.matchMedia("(max-width: 46em)");
 
   return (
     <div
       className="listitem"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      // style={{ left: isHovered && index * 230 - 50 + index * 2.5 }}
+      // style={
+      //   !screenSize.matches && {
+      //     left: isHovered && index * 230 - 50 + index * 2.5,
+      //   }
+      // }
+      // style={{
+      //   left: isHovered
+      //     ? screenSize.matches
+      //       ? index * 230
+      //       : index * 230 - 50 + index * 2.5
+      //     : "",
+      // }}
       style={{
-        left: isHovered
-          ? screenSize.matches
-            ? index * 230
-            : index * 230 - 50 + index * 2.5
-          : "",
+        left:
+          isHovered && !screenSize.matches
+            ? index * 230 - 50 + index * 2.5
+            : "",
       }}
     >
       <img src="/images/Joker-movie-thumbnail2.jpg" alt="" />
+
       {isHovered && (
         <>
           <video src={trailer} autoPlay={true} loop></video>

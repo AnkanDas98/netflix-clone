@@ -8,7 +8,7 @@ import ListItem from "../listitem/ListItem";
 
 import "./list.scss";
 
-const List = () => {
+const List = ({ title }) => {
   const [slideNumber, setSlideNumber] = useState(0);
   const [isMoved, setIsMoved] = useState(false);
 
@@ -31,7 +31,7 @@ const List = () => {
 
   return (
     <div className="list">
-      <span className="listTitle">Continue to watch</span>
+      <span className="listTitle">{title}</span>
       <div className="wrapper">
         <ArrowBackIosOutlined
           className="sliderArrow left"
