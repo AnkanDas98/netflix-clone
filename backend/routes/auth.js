@@ -19,4 +19,16 @@ router.post(
   authController.register
 );
 
+router.post(
+  "/login",
+  [
+    check("email").isEmail(),
+    check("password", "Password needs to be atleast 6 charcter")
+      .trim()
+      .isLength({ min: 6 })
+      .isAlphanumeric(),
+  ],
+  authController.login
+);
+
 module.exports = router;
