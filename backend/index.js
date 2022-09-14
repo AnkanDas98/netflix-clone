@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv").config();
 const cors = require("cors");
 const authRoute = require("./routes/auth");
+const userRoute = require("./routes/users");
 
 const app = express();
 
@@ -17,6 +18,7 @@ mongoose
   .catch((err) => console.log(err));
 
 app.use("/api/auth", authRoute);
+app.use("/api/user", userRoute);
 
 app.listen(8000, () => {
   console.log("Application Running!");
