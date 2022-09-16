@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { check, body } = require("express-validator");
 
 const userController = require("../controller/userController");
-const verifyToken = require("../verifyToken");
+const verifyToken = require("../middleware/verifyToken");
 
 // Get All User
 router.get("/", verifyToken, userController.getAllUser);

@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { check } = require("express-validator");
 
 const movieController = require("../controller/movieController");
-const verifyToken = require("../verifyToken");
+const verifyToken = require("../middleware/verifyToken");
 const isAdmin = require("../middleware/checkAdmin");
 
 router.get("/", verifyToken, isAdmin, movieController.allMovies);

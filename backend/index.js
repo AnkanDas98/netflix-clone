@@ -8,6 +8,8 @@ const userRoute = require("./routes/users");
 const movieRoute = require("./routes/movies");
 const listRoute = require("./routes/list");
 
+const { notFound, errorHandler } = require("./middleware/errorHandaler");
+
 const app = express();
 
 app.use(cors());
@@ -24,6 +26,10 @@ app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
 app.use("/api/movie", movieRoute);
 app.use("/api/lists", listRoute);
+
+app.use(notFound);
+
+app.use(errorHandler);
 
 app.listen(8000, () => {
   console.log("Application Running!");

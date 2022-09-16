@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { check } = require("express-validator");
 
 const listController = require("../controller/listController");
-const verifyToken = require("../verifyToken");
+const verifyToken = require("../middleware/verifyToken");
 const isAdmin = require("../middleware/checkAdmin");
 
 router.post(

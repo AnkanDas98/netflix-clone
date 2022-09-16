@@ -7,12 +7,16 @@ function verifyToken(req, res, next) {
     token = authHeader.split(" ")[1];
 
     jwt.verify(token, process.env.JWT_KEY, (err, user) => {
-      if (err) res.status(403).json({ error: "Token is not valid" });
+      if (err) {
+        res.status(403).json({ error: "Token is not valid" });
+        throw new Error({ message: "Token is not valid" });
+      }
       req.user = user;
       next();
     });
   } else {
-    return res.status(401).json({ error: "You are not authenticated" });
+    res.status(401).json({ error: "You are not authenticated" });
+    throw new Error({ message: "Not authorized, token failed" });
   }
 }
 

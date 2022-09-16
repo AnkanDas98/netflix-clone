@@ -2,7 +2,8 @@ function checkAdmin(req, res, next) {
   if (req.user.isAdmin) {
     next();
   } else {
-    return res.status(401).json({ error: "You do not have any access" });
+    res.status(401).json({ error: "You do not have any access" });
+    throw new Error({ message: "Not Authorized As An Admin" });
   }
 }
 
